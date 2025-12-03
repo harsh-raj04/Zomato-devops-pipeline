@@ -11,6 +11,7 @@ pipeline {
         
         // AWS EC2 configuration
         EC2_HOST = '10.0.1.245'  // Private IP - Jenkins and app server in same VPC
+        EC2_PUBLIC_IP = '3.108.112.197'  // Public IP for browser access
         EC2_USER = 'ubuntu'
         SSH_CREDENTIALS_ID = 'ec2-ssh-key'
         
@@ -134,7 +135,7 @@ pipeline {
                     sh """
                         cd frontend
                         docker build \
-                            --build-arg VITE_API_BASE=http://${EC2_HOST}:4000 \
+                            --build-arg VITE_API_BASE=http://${EC2_PUBLIC_IP}:4000 \
                             -t ${PROJECT_NAME}-frontend:${BUILD_NUMBER} .
                         docker tag ${PROJECT_NAME}-frontend:${BUILD_NUMBER} ${PROJECT_NAME}-frontend:latest
                     """
@@ -195,6 +196,7 @@ pipeline {
                                 -i inventory \
                                 deploy.yml \
                                 --private-key="$SSH_KEY" \
+                                --extra-vars "EC2_PUBLIC_IP=${EC2_PUBLIC_IP}" \
                                 -v
                         '''
                     }
