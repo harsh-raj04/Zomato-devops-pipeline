@@ -5,6 +5,7 @@ import Restaurant from './pages/Restaurant';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Header from './components/Header';
+import Chatbot from './components/Chatbot';
 
 export default function App() {
   const [cart, setCart] = useState([]);
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/signup" element={<Signup />} />
         </Routes>
       </main>
+      <Chatbot />
     </div>
   );
 }
