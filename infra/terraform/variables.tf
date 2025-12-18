@@ -22,7 +22,7 @@ variable "project_name" {
 variable "instance_type" {
   description = "EC2 instance type for application server"
   type        = string
-  default     = "t3.micro"
+  default     = "t3.small"
 }
 
 variable "jenkins_instance_type" {
