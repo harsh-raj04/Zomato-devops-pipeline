@@ -220,14 +220,14 @@
       debug:
         var: container_status.stdout_lines
 
-    - name: Verify backend API
+    - name: Verify backend API (Wait for DB seeding)
       uri:
         url: "http://localhost:4000/api/restaurants"
         method: GET
         status_code: 200
       register: backend_check
-      retries: 5
-      delay: 3
+      retries: 60
+      delay: 5
       until: backend_check.status == 200
 
     - name: Verify frontend
@@ -236,7 +236,7 @@
         method: GET
         status_code: 200
       register: frontend_check
-      retries: 5
+      retries: 20
       delay: 3
       until: frontend_check.status == 200
 
