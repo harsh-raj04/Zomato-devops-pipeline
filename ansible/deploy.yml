@@ -50,6 +50,10 @@
     # ==========================================
     # 0.5 INSTALL DOCKER (IF MISSING)
     # ==========================================
+    - name: Fix interrupted dpkg
+      command: dpkg --configure -a
+      ignore_errors: yes
+
     - name: Install required system packages
       apt:
         pkg:
