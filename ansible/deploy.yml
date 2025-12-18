@@ -92,6 +92,9 @@
         groups: docker
         append: yes
 
+    - name: Reset connection so docker group is picked up
+      meta: reset_connection
+
     # ==========================================
     # 1. ENSURE DOCKER IS RUNNING
     # ==========================================
