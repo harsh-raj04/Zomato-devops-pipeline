@@ -16,14 +16,27 @@ app.get('/healthz',(req,res)=>res.json({status:'ok'}));
 
 async function init(){
   await sequelize.sync({alter:true});
-  if(await Restaurant.count()===0){
+  
+  // Force re-seed if data is missing or to update with new fields
+  // For development/demo, we'll check if the first restaurant has an image. If not, we re-seed.
+  const firstRestaurant = await Restaurant.findOne();
+  const shouldSeed = !firstRestaurant || !firstRestaurant.image;
+
+  if(shouldSeed){
+    console.log('🔄 Re-seeding database with new data...');
+    // Clear existing data
+    await MenuItem.destroy({where:{}, truncate:true});
+    await Restaurant.destroy({where:{}, truncate:true, cascade: true});
+
     // Seed from JSON file
     for(const restaurantInfo of restaurantData.restaurants){
       const restaurant = await Restaurant.create({
         name: restaurantInfo.name,
         cuisine: restaurantInfo.cuisine,
         rating: restaurantInfo.rating,
-        location: restaurantInfo.location
+        location: restaurantInfo.location,
+        image: restaurantInfo.image,
+        deliveryTime: restaurantInfo.deliveryTime
       });
       
       // Create menu items for this restaurant
@@ -31,6 +44,8 @@ async function init(){
         name: item.name,
         price: item.price,
         description: item.description,
+        image: item.image,
+        category: item.category,
         RestaurantId: restaurant.id
       }));
       

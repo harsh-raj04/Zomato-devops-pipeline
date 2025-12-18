@@ -80,6 +80,29 @@ export default function Restaurant({ cart, setCart }) {
     return item ? item.quantity : 0;
   };
 
+  const [couponCode, setCouponCode] = useState('');
+  const [discount, setDiscount] = useState(0);
+  const [couponMessage, setCouponMessage] = useState(null);
+
+  const applyCoupon = () => {
+    if (!couponCode.trim()) return;
+    
+    if (couponCode.toUpperCase() === 'WELCOME50') {
+      const disc = Math.min(total * 0.5, 100);
+      setDiscount(disc);
+      setCouponMessage({ type: 'success', text: `Coupon applied! You saved ₹${disc}` });
+    } else if (couponCode.toUpperCase() === 'ZOMATO20') {
+      const disc = Math.min(total * 0.2, 50);
+      setDiscount(disc);
+      setCouponMessage({ type: 'success', text: `Coupon applied! You saved ₹${disc}` });
+    } else {
+      setDiscount(0);
+      setCouponMessage({ type: 'error', text: 'Invalid coupon code' });
+    }
+  };
+
+  const finalTotal = total + 5 + Math.round(total * 0.05) - discount;
+
   if (loading) {
     return (
       <div className="container">
@@ -275,6 +298,26 @@ export default function Restaurant({ cart, setCart }) {
               </div>
 
               <div className="cart-bill-details">
+                {/* Coupon Section */}
+                <div className="coupon-section">
+                  <div className="coupon-input-group">
+                    <span className="coupon-icon">🏷️</span>
+                    <input 
+                      type="text" 
+                      placeholder="Enter coupon code" 
+                      value={couponCode}
+                      onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                      className="coupon-input"
+                    />
+                    <button onClick={applyCoupon} className="apply-btn">APPLY</button>
+                  </div>
+                  {couponMessage && (
+                    <div className={`coupon-message ${couponMessage.type}`}>
+                      {couponMessage.text}
+                    </div>
+                  )}
+                </div>
+
                 <h4>Bill Details</h4>
                 <div className="bill-row">
                   <span>Item Total</span>
@@ -292,10 +335,16 @@ export default function Restaurant({ cart, setCart }) {
                   <span>GST and Restaurant Charges</span>
                   <span>₹{Math.round(total * 0.05)}</span>
                 </div>
+                {discount > 0 && (
+                  <div className="bill-row discount">
+                    <span>Coupon Discount</span>
+                    <span className="discount-value">- ₹{discount}</span>
+                  </div>
+                )}
                 <hr className="bill-divider" />
                 <div className="bill-row total">
                   <span>TO PAY</span>
-                  <span>₹{total + 5 + Math.round(total * 0.05)}</span>
+                  <span>₹{finalTotal}</span>
                 </div>
               </div>
 
@@ -304,7 +353,7 @@ export default function Restaurant({ cart, setCart }) {
                 onClick={placeOrder}
               >
                 <span>Place Order</span>
-                <span>₹{total + 5 + Math.round(total * 0.05)}</span>
+                <span>₹{finalTotal}</span>
               </button>
             </>
           ) : (

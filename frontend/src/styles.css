@@ -32,6 +32,12 @@
   --text-muted: #93959f;
   --text-inverse: #ffffff;
   
+  /* Status Colors */
+  --success: #48c479;
+  --error: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+
   /* Background Colors */
   --bg-primary: #ffffff;
   --bg-secondary: #f8f8f8;
@@ -2616,4 +2622,77 @@ input:focus-visible {
     flex-shrink: 0;
     font-size: 0.7rem;
   }
+}
+
+/* Coupon Section */
+.coupon-section {
+  background: white;
+  border: 1px dashed var(--border-medium);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.coupon-input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.coupon-icon {
+  font-size: 1.2rem;
+}
+
+.coupon-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.coupon-input::placeholder {
+  text-transform: none;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.apply-btn {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+.apply-btn:hover {
+  background: rgba(255, 90, 95, 0.1);
+  border-radius: 4px;
+}
+
+.coupon-message {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  padding-left: 2rem;
+}
+
+.coupon-message.success {
+  color: var(--success);
+}
+
+.coupon-message.error {
+  color: var(--error);
+}
+
+.bill-row.discount {
+  color: var(--success);
+}
+
+.discount-value {
+  font-weight: 600;
 }
