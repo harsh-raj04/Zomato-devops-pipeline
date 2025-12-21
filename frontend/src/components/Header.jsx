@@ -7,6 +7,19 @@ export default function Header({ cartCount = 0 }) {
   const user = currentUser();
   const [scrolled, setScrolled] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showLocationDropdown, setShowLocationDropdown] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState('Bangalore, India');
+
+  const locations = [
+    'Bangalore, India',
+    'Mumbai, India',
+    'Delhi, India',
+    'Hyderabad, India',
+    'Chennai, India',
+    'Kolkata, India',
+    'Pune, India',
+    'Ahmedabad, India'
+  ];
 
   // Add scroll listener for header shadow effect
   useEffect(() => {
@@ -17,10 +30,30 @@ export default function Header({ cartCount = 0 }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showLocationDropdown && !event.target.closest('.location-selector')) {
+        setShowLocationDropdown(false);
+      }
+      if (showDropdown && !event.target.closest('.user-menu')) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [showLocationDropdown, showDropdown]);
+
   const handleLogout = () => {
     logout();
     setShowDropdown(false);
     navigate('/');
+  };
+
+  const handleLocationChange = (location) => {
+    setSelectedLocation(location);
+    setShowLocationDropdown(false);
   };
 
   return (
@@ -32,12 +65,31 @@ export default function Header({ cartCount = 0 }) {
             <span className="logo-icon">🍕</span>
             <span className="logo-text">FoodHub</span>
           </Link>
-          <div className="location-selector">
+          <div 
+            className="location-selector" 
+            onClick={() => setShowLocationDropdown(!showLocationDropdown)}
+          >
             <span className="location-icon">📍</span>
             <div className="location-text">
               <span className="location-label">Deliver to</span>
-              <span className="location-value">Bangalore, India ▾</span>
+              <span className="location-value">{selectedLocation} ▾</span>
             </div>
+            {showLocationDropdown && (
+              <div className="user-dropdown location-dropdown">
+                {locations.map((location) => (
+                  <div
+                    key={location}
+                    className="dropdown-item"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleLocationChange(location);
+                    }}
+                  >
+                    📍 {location}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 

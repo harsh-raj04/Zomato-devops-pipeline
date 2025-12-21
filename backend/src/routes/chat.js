@@ -13,15 +13,26 @@ Your role:
 - Use food emojis occasionally to be engaging 🍕🍔🍜
 
 Available restaurants on our platform:
-1. Spice Garden - North Indian (Rating: 4.5) - Known for Butter Chicken ₹275, Biryani ₹220
-2. Pizza Paradise - Italian (Rating: 4.3) - Best pizzas and pasta
-3. Dragon Wok - Chinese (Rating: 4.6) - Famous for noodles and manchurian
-4. Biryani House - Hyderabadi (Rating: 4.8) - Premium biryanis
-5. Curry Leaves - South Indian (Rating: 4.4) - Dosas, idlis, vadas
-6. Burger Barn - American (Rating: 4.2) - Juicy burgers and fries
-7. Sushi Sensation - Japanese (Rating: 4.7) - Fresh sushi and ramen
-8. Taco Town - Mexican (Rating: 4.3) - Tacos, burritos, nachos
-9. Green Bowl - Healthy (Rating: 4.5) - Salads and healthy options
+1. Domino's Pizza - Pizza (Rating: 4.3) - MG Road - Popular items: Margherita ₹199, Cheese Burst Pizza ₹549
+2. McDonald's - Burgers (Rating: 4.1) - City Centre - McAloo Tikki ₹59, Big Mac ₹249
+3. KFC - Fried Chicken (Rating: 4.2) - Phoenix Mall - Hot & Crispy Chicken ₹249, Zinger Burger ₹199
+4. Burger King - Burgers (Rating: 4.0) - DLF Mall - Whopper ₹249, Paneer King ₹179
+5. Subway - Sandwiches (Rating: 4.2) - Cyber Hub - Veggie Delite ₹179, Paneer Tikka Sub ₹299
+6. Haldiram's - North Indian (Rating: 4.4) - Connaught Place - Chole Bhature ₹149, Pav Bhaji ₹129
+7. Bikanervala - North Indian (Rating: 4.3) - Rajouri Garden - Thali Meal ₹249, Dal Makhani ₹199
+8. Biryani Blues - Biryani (Rating: 4.5) - Nehru Place - Hyderabadi Chicken Biryani ₹299, Mutton Biryani ₹399
+9. Paradise Biryani - Biryani (Rating: 4.6) - Jubilee Hills - Paradise Special Biryani ₹349
+10. Saravana Bhavan - South Indian (Rating: 4.4) - Janpath - Masala Dosa ₹120, Idli ₹60
+11. Moti Mahal Delux - Mughlai (Rating: 4.3) - Daryaganj - Butter Chicken ₹349, Tandoori Chicken ₹449
+12. Punjabi By Nature - Punjabi (Rating: 4.2) - Vasant Kunj - Sarson Da Saag ₹249, Amritsari Fish ₹349
+13. Wow! Momo - Momos (Rating: 4.1) - Select City Walk - Steamed Veg Momos ₹129, Chicken Momos ₹159
+14. Pizza Hut - Pizza (Rating: 4.0) - Ambience Mall - Margherita ₹199, Veggie Supreme ₹399
+15. Taco Bell - Mexican (Rating: 4.1) - Pacific Mall - Crunchy Taco ₹99, Burrito Supreme ₹199
+16. Chaayos - Cafe (Rating: 4.3) - Khan Market - Masala Chai ₹79, Cheese Maggi ₹149
+17. Starbucks - Cafe (Rating: 4.4) - Brigade Road - Caffe Latte ₹295, Java Chip Frappuccino ₹375
+18. The Chinese Box - Chinese (Rating: 4.2) - Koramangala - Veg Hakka Noodles ₹179, Chilli Paneer ₹219
+19. Nando's - Peri Peri (Rating: 4.3) - Indiranagar - 1/4 Peri Peri Chicken ₹299, Chicken Burger ₹249
+20. The Coastal Kitchen - Seafood (Rating: 4.9) - Harbor Bay - Grilled Lobster ₹899, Fish & Chips ₹349
 
 Key information:
 - Delivery time: Usually 30-45 minutes

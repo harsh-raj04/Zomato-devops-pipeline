@@ -246,6 +246,8 @@ header a:hover::after {
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s;
+  position: relative;
+  user-select: none;
 }
 
 .location-selector:hover {
@@ -320,27 +322,37 @@ header a:hover::after {
   top: 100%;
   right: 0;
   margin-top: 0.5rem;
-  background: var(--card-bg);
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
   border: 1px solid var(--border);
   min-width: 200px;
-  padding: 0.5rem;
+  padding: 0.25rem;
   z-index: 1000;
   animation: fadeInUp 0.2s ease;
+}
+
+.location-selector .user-dropdown {
+  left: 0;
+  right: auto;
+  min-width: 200px;
+  max-width: 220px;
+  max-height: 280px;
+  overflow-y: auto;
+  background: white;
 }
 
 .dropdown-item {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem 1rem;
+  padding: 0.6rem 0.9rem;
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  border-radius: 10px;
-  transition: all 0.2s;
+  border-radius: 8px;
+  transition: all 0.15s;
   width: 100%;
   border: none;
   background: none;
@@ -353,7 +365,7 @@ header a:hover::after {
 }
 
 .dropdown-item:hover {
-  background: var(--bg-tertiary);
+  background: #f3f4f6;
   color: var(--primary);
 }
 
@@ -1412,15 +1424,15 @@ input:focus-visible {
 }
 
 .category-icon {
-  width: 80px;
-  height: 80px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
+  font-size: 4rem;
   transition: var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 
 .category-item:hover .category-icon {
@@ -1478,7 +1490,7 @@ input:focus-visible {
 /* Restaurant Card - Horizontal Style */
 .restaurant-card-horizontal {
   flex-shrink: 0;
-  width: 280px;
+  width: 340px;
   text-decoration: none;
   color: inherit;
   animation: fadeInUp 0.5s ease both;
@@ -1492,7 +1504,7 @@ input:focus-visible {
 }
 
 .card-image {
-  height: 180px;
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1504,7 +1516,7 @@ input:focus-visible {
 }
 
 .card-emoji {
-  font-size: 4rem;
+  font-size: 5rem;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
 }
 
@@ -1738,17 +1750,17 @@ input:focus-visible {
   }
   
   .category-icon {
-    width: 60px;
-    height: 60px;
-    font-size: 1.75rem;
+    width: 90px;
+    height: 90px;
+    font-size: 2.75rem;
   }
   
   .restaurant-card-horizontal {
-    width: 240px;
+    width: 280px;
   }
   
   .card-image {
-    height: 150px;
+    height: 180px;
   }
   
   .restaurants-grid-new {
@@ -2505,20 +2517,26 @@ input:focus-visible {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background: var(--success);
-  color: white;
+  background: #16a34a;
+  color: white !important;
   border: none;
   border-radius: 12px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   margin-top: 1rem;
   transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+.checkout-btn span {
+  color: white !important;
 }
 
 .checkout-btn:hover {
-  background: #16a34a;
+  background: #15803d;
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.4);
 }
 
 .empty-cart {
