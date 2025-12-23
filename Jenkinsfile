@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         // Application configuration
-        PROJECT_NAME = 'zomato-app'
+        PROJECT_NAME = 'FoodHub'
         
         // Docker configuration
         DOCKER_REGISTRY = 'docker.io'  // Change to AWS ECR in Phase 4
