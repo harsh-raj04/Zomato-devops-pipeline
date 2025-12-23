@@ -1,0 +1,47 @@
+<svg width="800" height="120" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .box {
+      fill: #0f172a;
+      stroke: #38bdf8;
+      stroke-width: 2;
+      rx: 10;
+    }
+    .text {
+      fill: #e5e7eb;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+    .arrow {
+      stroke: #22c55e;
+      stroke-width: 3;
+      fill: none;
+      stroke-dasharray: 10;
+      animation: dash 2s linear infinite;
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: -20;
+      }
+    }
+  </style>
+
+  <rect x="10" y="30" width="120" height="60" class="box"/>
+  <text x="70" y="60" class="text">GitHub</text>
+
+  <line x1="130" y1="60" x2="210" y2="60" class="arrow"/>
+
+  <rect x="210" y="30" width="120" height="60" class="box"/>
+  <text x="270" y="60" class="text">Jenkins</text>
+
+  <line x1="330" y1="60" x2="410" y2="60" class="arrow"/>
+
+  <rect x="410" y="30" width="120" height="60" class="box"/>
+  <text x="470" y="60" class="text">Docker</text>
+
+  <line x1="530" y1="60" x2="610" y2="60" class="arrow"/>
+
+  <rect x="610" y="30" width="170" height="60" class="box"/>
+  <text x="695" y="60" class="text">AWS EC2</text>
+</svg>

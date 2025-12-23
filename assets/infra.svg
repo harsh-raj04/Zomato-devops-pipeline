@@ -1,0 +1,19 @@
+<svg width="500" height="140" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .pulse {
+      fill: #7c3aed;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+  </style>
+
+  <rect x="40" y="40" width="160" height="60" rx="12" class="pulse"/>
+  <text x="120" y="75" fill="white" text-anchor="middle">Terraform</text>
+
+  <rect x="260" y="40" width="160" height="60" rx="12" class="pulse"/>
+  <text x="340" y="75" fill="white" text-anchor="middle">AWS EC2</text>
+</svg>
